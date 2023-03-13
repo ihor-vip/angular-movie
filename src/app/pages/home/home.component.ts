@@ -14,12 +14,14 @@ export class HomeComponent implements OnInit{
   trendingMovieResult: any = [];
   actionMovieResult: any = [];
   adventureMovieResult: any = [];
+  animationMovieResult: any = [];
 
   ngOnInit(): void {
     this.bannerData();
     this.trendingData();
     this.actionMovie();
     this.adventureMovie();
+    this.animationMovie();
   }
 
   bannerData() {
@@ -45,6 +47,12 @@ export class HomeComponent implements OnInit{
   adventureMovie() {
     this.service.fetchAdventureMovies().subscribe((result) => {
       this.adventureMovieResult = result.results;
+    });
+  }
+
+  animationMovie() {
+    this.service.fetchAnimationMovies().subscribe((result) => {
+      this.animationMovieResult = result.results;
     });
   }
 }
